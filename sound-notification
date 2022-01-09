@@ -1,0 +1,28 @@
+#! /bin/sh
+
+currentlevel=$(pamixer --get-volume-human)
+mutestatus=$(pamixer --get-mute)
+
+if [ $currentlevel = 0% ];
+then
+	echo " 婢  Muted " 
+	#echo " 🔇 Muted " 
+
+elif [ $mutestatus = true ];
+then
+	echo "婢 Muted " && dunstify -r 1 " 婢  Muted " 
+	#echo "🔇 Muted " && dunstify -u low -t 1500 -r 1 "🔇 Muted " 
+
+elif [ "$(echo "$currentlevel" | tr -d "%")" -le " 50" ];
+then
+	echo "  $currentlevel " && dunstify -r 1 "Volume  $currentlevel" 
+	#echo "🔉 $currentlevel " && dunstify -u low -t 1500 -r 1 "Volume 🔉 $currentlevel" 
+
+
+elif [ "$(echo "$currentlevel" | tr -d "%")" -ge " 50" ];
+then
+	echo "   $currentlevel " && dunstify -r 1 "Volume   $currentlevel" 
+	#echo "🔊 $currentlevel " && dunstify -u low -t 1500 -r 1 "Volume 🔊 $currentlevel" 
+
+
+fi

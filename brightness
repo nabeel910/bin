@@ -1,0 +1,14 @@
+#!/bin/sh
+percentage=$(xbacklight -g | sed "s/\..*//")
+
+
+if [ "$(xbacklight -g)" = "100.00" ];
+then
+	dunstify -u low -t 1500 -r 3 "Backlight   100%"  
+	#dunstify -u low -t 1500 -r 3 "🔆 100%"  
+else
+	dunstify -u low -t 1500 -r 3 "Backlight   $percentage%"
+	#dunstify -u low -t 1500 -r 3 "🔆 $percentage%"
+fi
+
+kill -44 $(pidof dwmblocks)

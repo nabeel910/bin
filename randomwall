@@ -1,0 +1,6 @@
+#!/bin/bash
+#feh --bg-fill --randomize ~/pics/wallpapers
+#feh --bg-fill --randomize ~/pics/walls
+#feh --bg-fill --randomize ~/pics/anime
+feh -z --bg-scale ~/pics/demonslayer
+dunstify "🖼 Random wallpaper applied"

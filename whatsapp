@@ -1,0 +1,2 @@
+#!/bin/sh
+brave --app=http://web.whatsapp.com --class=WebApp-Whatsapp6569

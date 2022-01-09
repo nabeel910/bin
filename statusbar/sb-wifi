@@ -1,0 +1,11 @@
+#!/bin/sh
+
+networkname=$(iw dev | awk '/ssid/ {print $2}')
+networkstatus=$(cat /sys/class/net/wlan0/operstate)
+
+if [ "$networkstatus" = up ]; 
+then
+    echo "$networkname"
+else
+	echo "Disconneted"
+fi

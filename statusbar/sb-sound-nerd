@@ -1,0 +1,25 @@
+#! /bin/sh
+
+currentlevel=$(pamixer --get-volume-human)
+mutestatus=$(pamixer --get-mute)
+
+if [ $currentlevel = 0% ];
+then
+	echo "婢  Muted"
+	#echo "🔇 Muted"
+elif [ $mutestatus = true ];
+then
+	echo "婢  Muted"
+	#echo "🔇 Muted"
+elif [ "$(echo "$currentlevel" | tr -d "%")" -le " 50" ];
+then
+	echo " $currentlevel"
+	#echo "🔉 $currentlevel"
+
+
+elif [ "$(echo "$currentlevel" | tr -d "%")" -ge " 50" ];
+then
+	echo "  $currentlevel"
+	#echo "🔊 $currentlevel"
+fi
+

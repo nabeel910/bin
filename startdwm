@@ -1,0 +1,26 @@
+#!/bin/sh
+eval "$(dbus-launch --sh-syntax --exit-with-session)"
+setxkbmap -model pc104 -layout us,ar -variant ,, -option grp:alt_shift_toggle &
+xsetroot -cursor_name left_ptr &
+picom -b &
+numlockx on &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+dunst &
+feh --bg-scale ~/pics/walls/nord-peeks.png
+#feh -z --bg-scale ~/pics/demonslayer
+clipmenud &
+xidlehook --not-when-audio --not-when-fullscreen --timer 1200 "slock" "" &
+transmission-daemon &
+/usr/bin/pipewire &
+/usr/bin/pipewire-pulse &
+/usr/bin/pipewire-media-session &
+slstatus &
+redshift -l 30.06263:31.24967 &
+while true; do
+    # Log stderror to a file 
+    #dwm 2> ~/.config/.dwm.log
+    # No error logging
+dwm >/dev/null 2>&1
+done
+
+

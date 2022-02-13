@@ -4,5 +4,5 @@ upacman=$(pacman -Qu | wc -l)
 
 if [ $upacman -gt 1 ];
 then
-	echo "📦 $upacman"
+	echo "📦 $upacman | "
 fi

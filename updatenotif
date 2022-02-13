@@ -2,7 +2,7 @@
 
 upacman=$(pacman -Qu | wc -l)
 npacman=$(pacman -Qu)
-uaur=$(paru -Qu | wc -l)
+uaur=$(yay -Qu | wc -l)
 
 if [ $upacman -gt 1 ];
 then

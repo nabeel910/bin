@@ -6,5 +6,5 @@ playerstatus=$(playerctl status 2>/dev/null)
 if [ "$playerstatus" = "Playing" ];
 then
 	#echo "" 
-	echo " 🎵" 
+	echo " 🎵 | " 
 fi

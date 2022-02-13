@@ -16,11 +16,10 @@ declare -a options=(
 "1. Lock screen"
 "2. Logout"
 "3. Restart dwm"
-"4. Restart bspwm"
-"5. Reboot"
-"6. Suspend"
-"7. Power off"
-"8. Quit"
+"4. Reboot"
+"5. Suspend"
+"6. Power off"
+"7. Quit"
 )
 
 # We use "printf '%s\n'" to format the array one item to a line.
@@ -49,11 +48,7 @@ case $choice in
         fi
         ;;
 
-    '4. Restart bspwm')
-		bspc wm -r
-        ;;
-
-    '5. Reboot')
+    '4. Reboot')
         if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
             loginctl reboot
         else
@@ -61,7 +56,7 @@ case $choice in
         fi
         ;;
 
-     '6. Suspend')
+     '5. Suspend')
         if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
             loginctl suspend
         else
@@ -69,14 +64,14 @@ case $choice in
         fi
         ;;
 
-     '7. Power off')
+     '6. Power off')
         if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
           loginctl poweroff
         else
             notify-send "User chose not to shutdown." && exit 0
         fi
         ;;
-     '8. Quit')
+     '7. Quit')
          notify-send "Program terminated." && exit 0
     ;;
         # It is a common practice to use the wildcard asterisk symbol (*) as a final

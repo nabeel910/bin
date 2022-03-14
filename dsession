@@ -50,7 +50,7 @@ case $choice in
 
     '4. Reboot')
         if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
-            loginctl reboot
+            systemctl reboot
         else
             notify-send "User chose not to reboot." && exit 0
         fi
@@ -58,7 +58,7 @@ case $choice in
 
      '5. Suspend')
         if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
-            loginctl suspend
+            systemctl suspend
         else
             notify-send "User chose not to suspend." && exit 0
         fi
@@ -66,7 +66,7 @@ case $choice in
 
      '6. Power off')
         if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
-          loginctl poweroff
+          systemctl poweroff
         else
             notify-send "User chose not to shutdown." && exit 0
         fi

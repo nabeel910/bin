@@ -6,8 +6,8 @@ uaur=$(yay -Qu | wc -l)
 
 if [ $upacman -gt 1 ];
 then
-	dunstify -u low -r 9 "Packages: 📦 $upacman" "$npacman"
+	dunstify "Packages: 📦 $upacman" "$npacman"
 ##	dunstify -u low -r 9 "Package Updates" "📦 $upacman | 📦 $uaur"
 else
-	dunstify -u low -r 9 "Package Updates" "📦 No updates available"
+	dunstify "Package Updates" "📦 No updates available"
 fi

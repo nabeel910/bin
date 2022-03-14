@@ -16,7 +16,7 @@
 set -euo pipefail
 
 # Defaults (Override in config)
-: "${SCROTDIR:=${HOME}/pics/screenshots}"
+: "${SCROTDIR:=${HOME}/Pictures/screenshots}"
 
 # Makes sure the directory exists.
 mkdir -p "${SCROTDIR}"

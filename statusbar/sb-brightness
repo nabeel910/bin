@@ -1,8 +1,8 @@
 #!/bin/sh
-percentage=$(xbacklight -g | sed "s/\..*//")
+percentage=$(light -G | sed "s/\..*//")
 
 
-if [ "$(xbacklight -g)" = "100.00" ];
+if [ "$(light -G)" = "100.00" ];
 then
 	echo "100%"  
 else

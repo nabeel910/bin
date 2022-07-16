@@ -15,11 +15,11 @@
 declare -a options=(
 "1. Lock screen"
 "2. Logout"
-"3. Restart dwm"
-"4. Reboot"
-"5. Suspend"
-"6. Power off"
-"7. Quit"
+#"3. Restart dwm"
+"3. Reboot"
+"4. Suspend"
+"5. Power off"
+"6. Quit"
 )
 
 # We use "printf '%s\n'" to format the array one item to a line.
@@ -40,15 +40,15 @@ case $choice in
         fi
         ;;
 
-    '3. Restart dwm')
-        if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
-            killall dwm
-        else
-            notify-send "User chose not to restart dwm." && exit 0
-        fi
-        ;;
+ #   '3. Restart dwm')
+  #      if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
+   #         killall dwm
+    #    else
+     #       notify-send "User chose not to restart dwm." && exit 0
+      #  fi
+       # ;;
 
-    '4. Reboot')
+    '3. Reboot')
         if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
             systemctl reboot
         else
@@ -56,7 +56,7 @@ case $choice in
         fi
         ;;
 
-     '5. Suspend')
+     '4. Suspend')
         if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
             systemctl suspend
         else
@@ -64,14 +64,14 @@ case $choice in
         fi
         ;;
 
-     '6. Power off')
+     '5. Power off')
         if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
           systemctl poweroff
         else
             notify-send "User chose not to shutdown." && exit 0
         fi
         ;;
-     '7. Quit')
+     '6. Quit')
          notify-send "Program terminated." && exit 0
     ;;
         # It is a common practice to use the wildcard asterisk symbol (*) as a final

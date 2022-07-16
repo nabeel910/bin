@@ -7,19 +7,19 @@ mutestatus=$(pamixer --get-mute)
 if [ $currentlevel = 0% ];
 then
 	#echo "婢 Muted"
-	dunstify -r 5 "婢 Muted"
+	dunstify -r 5 "Volume 婢 Muted"
 elif [ $mutestatus = true ];
 then
 	#echo "婢 Muted"
-	dunstify -r 5 "婢 Muted"
+	dunstify -r 5 "Volume 婢 Muted"
 elif [ "$(echo "$currentlevel" | tr -d "%")" -le " 50" ];
 then
 	#echo " $currentlevel"
-	dunstify -r 5 "  $currentlevel"
+	dunstify -r 5 "Volume   $currentlevel"
 
 
 elif [ "$(echo "$currentlevel" | tr -d "%")" -ge " 50" ];
 then
 	#echo " $currentlevel"
-	dunstify -r 5 "  $currentlevel"
+	dunstify -r 5 "Volume   $currentlevel"
 fi

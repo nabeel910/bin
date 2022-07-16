@@ -1,28 +1,25 @@
 #! /bin/sh
 
+#currentlevel=$(pulseaudio-ctl | grep 'Volume level' | awk '{print $4$5}')
 currentlevel=$(pamixer --get-volume-human)
 mutestatus=$(pamixer --get-mute)
 
 if [ $currentlevel = 0% ];
 then
-	echo " 婢  Muted " 
-	#echo " 🔇 Muted " 
-
+	#echo "婢 Muted"
+	dunstify -r 5 "婢 Muted"
 elif [ $mutestatus = true ];
 then
-	echo "婢 Muted " && dunstify -r 1 " 婢  Muted " 
-	#echo "🔇 Muted " && dunstify -u low -t 1500 -r 1 "🔇 Muted " 
-
+	#echo "婢 Muted"
+	dunstify -r 5 "婢 Muted"
 elif [ "$(echo "$currentlevel" | tr -d "%")" -le " 50" ];
 then
-	echo "  $currentlevel " && dunstify -r 1 "Volume  $currentlevel" 
-	#echo "🔉 $currentlevel " && dunstify -u low -t 1500 -r 1 "Volume 🔉 $currentlevel" 
+	#echo " $currentlevel"
+	dunstify -r 5 "  $currentlevel"
 
 
 elif [ "$(echo "$currentlevel" | tr -d "%")" -ge " 50" ];
 then
-	echo "   $currentlevel " && dunstify -r 1 "Volume   $currentlevel" 
-	#echo "🔊 $currentlevel " && dunstify -u low -t 1500 -r 1 "Volume 🔊 $currentlevel" 
-
-
+	#echo " $currentlevel"
+	dunstify -r 5 "  $currentlevel"
 fi

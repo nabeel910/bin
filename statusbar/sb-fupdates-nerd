@@ -1,0 +1,10 @@
+#!/bin/bash
+
+checkupdates=$(dnf check-update | wc -l)
+
+if [ $checkupdates -gt 2 ];
+then
+	echo "$checkupdates"
+else
+	echo "0"
+fi

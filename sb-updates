@@ -4,7 +4,7 @@ checkupdates=$(dnf check-update | wc -l)
 
 if [ $checkupdates -gt 1 ];
 then
-	echo " $checkupdates  "
+	echo " $checkupdates 📦 "
 else
 	echo ""
 fi

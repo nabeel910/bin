@@ -24,7 +24,23 @@ else
    symbol=''
 fi
 
-printf "%s" "$symbol $percent"
+
+if [ "$mode" = "Discharging," ]; then
+  charging='-'
+elif [ "$mode" = "Charging," ]; then
+  charging='+'
+elif [ "$mode" = "Unknown," ]; then
+  if [ "$ac_adapt" = "on-line," ]; then
+    charging='+'
+  elif [ "$ac_adapt" = "off-line," ]; then
+    charging=''
+    fi
+else
+   charging=''
+fi
+
+#printf "%s" "$symbol $percent"
+printf "%s" "$charging $percent%"
 
 #if [ "$percent" -lt 20 ]; then
 #  printf "%%{F#ed0b0b}"

@@ -2,9 +2,9 @@
 
 checkupdates=$(dnf check-update | wc -l)
 
-if [ $checkupdates -gt 1 ];
+if [ $checkupdates -gt 2 ];
 then
-	echo " $checkupdates  "
+	echo " $checkupdates 📦 | "
 else
 	echo ""
 fi

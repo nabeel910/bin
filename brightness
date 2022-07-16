@@ -4,7 +4,7 @@ percentage=$(light -G | sed "s/\..*//")
 
 if [ "$(light -G)" = "100.0" ];
 then
-	dunstify -t 1500 -r 3 "Backlight   100%"  
+	dunstify -r 8 "Backlight   100%"  
 else
-	dunstify -t 1500 -r 3 "Backlight   $percentage%"
+	dunstify -r 8 "Backlight   $percentage%"
 fi

@@ -3,15 +3,21 @@ setxkbmap -model pc104 -layout us,ar -variant ,, -option grp:alt_shift_toggle &
 xsetroot -cursor_name left_ptr &
 picom -b &
 numlockx on &
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+#pulseaudio &
+#nitrogen --restore &
+#/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+/usr/libexec/xfce-polkit &
 dunst &
 feh --bg-scale ~/Pictures/walls/dwmcatppuccin.png
 clipmenud &
-xidlehook --not-when-audio --not-when-fullscreen --timer 1200 "slock" "" &
+#xidlehook --not-when-audio --not-when-fullscreen --timer 1200 "slock" "" &
 xss-lock slock &
-transmission-daemon &
+#transmission-daemon &
 slstatus &
 #redshift -l 30.06263:31.24967 &
+pipewire &
+pipewire-media-session &
+pipewire-pulse &
 while true; do
     # Log stderror to a file 
     #dwm 2> ~/.config/.dwm.log

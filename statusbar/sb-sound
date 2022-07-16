@@ -1,16 +1,17 @@
 #! /bin/sh
 
-currentlevel=$(pamixer --get-volume-human)
-mutestatus=$(pamixer --get-mute)
+#currentlevel=$(pulseaudio-ctl | grep 'Volume level' | awk '{print $4$5}')
+currentlevel=$(pulseaudio-ctl full-status | awk {'print $1'})
+mutestatus=$(pulseaudio-ctl full-status | awk {'print $2'})
 
 if [ $currentlevel = 0% ];
 then
 	#echo "婢 Muted"
-	echo "🔇 Muted"
+	echo "🔇 no"
 elif [ $mutestatus = true ];
 then
 	#echo "婢 Muted"
-	echo "🔇 Muted"
+	echo "🔇 no"
 elif [ "$(echo "$currentlevel" | tr -d "%")" -le " 50" ];
 then
 	#echo " $currentlevel"
